@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//stat.lhuilliermarc.fr/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '4']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Décodeur Autoradio Renault</title>
+    <meta name="description" content="Décodeur gratuit pour codes d'autoradio Renault. Générez votre code de déverrouillage en quelques secondes.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23facc15' stroke-width='2'><path d='M4.9 19.1C1 15.2 1 8.8 4.9 4.9s10.3-3.9 14.2 0 3.9 10.3 0 14.2-10.3 3.9-14.2 0Z'/><path d='M13.5 9.5c-1.5-1.5-4-1.5-5.5 0s-1.5 4 0 5.5 4 1.5 5.5 0 1.5-4 0-5.5Z'/></svg>">
+    <meta name="keywords" content="Renault,code,precode,radio,autoradio">
+    <meta name="google-site-verification" content="-lHwn6P5TzTrWi-ovU5RwzWzpnubpNN2ziHwlM7bPZ8" />
+</head>
+<body>
+    <div class="app">
+        <!-- Theme Toggle -->
+        <div class="theme-controls">
+            <button id="historyBtn" class="control-btn" title="Historique des codes">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                    <path d="M3 3v5h5"/>
+                    <path d="M12 7v5l4 2"/>
+                </svg>
+            </button>
+            <button id="themeToggle" class="control-btn" title="Changer le thème">
+                <svg id="sunIcon" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <svg id="moonIcon" class="icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="container">
+            <!-- Header -->
+            <div class="header">
+                <div class="logo">
+                    <svg class="radio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9s10.3-3.9 14.2 0 3.9 10.3 0 14.2-10.3 3.9-14.2 0Z"/>
+                        <path d="M13.5 9.5c-1.5-1.5-4-1.5-5.5 0s-1.5 4 0 5.5 4 1.5 5.5 0 1.5-4 0-5.5Z"/>
+                    </svg>
+                </div>
+                <h1>Décodeur Autoradio Renault</h1>
+                <p class="subtitle">Générez le code de déverrouillage de votre autoradio Renault</p>
+            </div>
+
+            <!-- History Panel -->
+            <div id="historyPanel" class="history-panel hidden">
+                <div class="history-header">
+                    <div class="history-title">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6M12 17v6M5.64 5.64l4.24 4.24M14.12 14.12l4.24 4.24M1 12h6M17 12h6M5.64 18.36l4.24-4.24M14.12 9.88l4.24-4.24"/>
+                        </svg>
+                        <span>Historique des codes (<span id="historyCount">0</span>/10)</span>
+                    </div>
+                    <button id="clearHistoryBtn" class="clear-btn" title="Vider l'historique">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c0-1 1-2 2-2v2"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="historyList" class="history-list">
+                    <div class="history-empty">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                            <path d="M3 3v5h5"/>
+                            <path d="M12 7v5l4 2"/>
+                        </svg>
+                        <p>Aucun code dans l'historique</p>
+                        <p class="small">Les codes générés apparaîtront ici</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="instructions">
+                <div class="instruction-content">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 16v-4M12 8h.01"/>
+                    </svg>
+                    <div>
+                        <h3>Instructions d'utilisation :</h3>
+                        <ul>
+                            <li>• Saisissez le précode affiché sur votre autoradio</li>
+                            <li>• Format requis : 1 lettre suivie de 3 chiffres (ex: B123)</li>
+                            <li>• Le code de déverrouillage sera généré automatiquement</li>
+                            <li>• Les précodes commençant par "A0" ne sont pas supportés</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="input-section">
+                    <label for="precode">Précode de l'autoradio</label>
+                    <div class="input-container">
+                        <input type="text" id="precode" placeholder="Ex: B123" maxlength="4">
+                        <div class="input-icon hidden">
+                            <svg id="checkIcon" class="icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"/>
+                            </svg>
+                            <svg id="errorIcon" class="icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="15" y1="9" x2="9" y2="15"/>
+                                <line x1="9" y1="9" x2="15" y2="15"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="errorMessage" class="error-message hidden">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="15" y1="9" x2="9" y2="15"/>
+                            <line x1="9" y1="9" x2="15" y2="15"/>
+                        </svg>
+                        <span>Format invalide. Utilisez 1 lettre + 3 chiffres (pas A0XX)</span>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div id="loadingState" class="loading-state hidden">
+                    <div class="loading-content">
+                        <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12a9 9 0 11-6.219-8.56"/>
+                        </svg>
+                        <span>Génération du code en cours...</span>
+                    </div>
+                </div>
+
+                <!-- Code Result -->
+                <div id="codeResult" class="code-result hidden">
+                    <label>Code de déverrouillage</label>
+                    <div class="code-display">
+                        <div id="generatedCode" class="code-value">0000</div>
+                        <button id="copyBtn" class="copy-btn" title="Copier le code">
+                            <svg id="copyIcon" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                            </svg>
+                            <svg id="checkCopyIcon" class="icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="copyMessage" class="copy-message hidden">
+                        Code copié dans le presse-papiers !
+                    </div>
+                    
+                    <!-- Share Section -->
+                    <div class="share-section">
+                        <button id="shareBtn" class="share-btn" title="Partager le code">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16,6 12,2 8,6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                            <span>Partager</span>
+                        </button>
+                        
+                        <!-- Share Options (hidden by default) -->
+                        <div id="shareOptions" class="share-options hidden">
+                            <button class="share-option" data-method="whatsapp">
+                                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.309"/>
+                                </svg>
+                                <span>WhatsApp</span>
+                            </button>
+                            
+                            <button class="share-option" data-method="sms">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                </svg>
+                                <span>SMS</span>
+                            </button>
+                            
+                            <button class="share-option" data-method="email">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                                <span>Email</span>
+                            </button>
+                            
+                            <button class="share-option" data-method="telegram">
+                                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                </svg>
+                                <span>Telegram</span>
+                            </button>
+                            
+                            <button class="share-option" data-method="copy-link">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                                </svg>
+                                <span>Copier le lien</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Examples -->
+            <div class="examples">
+                <h3>Exemples de précodes valides :</h3>
+                <div class="example-buttons">
+                    <button class="example-btn" data-example="B123">B123</button>
+                    <button class="example-btn" data-example="C456">C456</button>
+                    <button class="example-btn" data-example="D789">D789</button>
+                    <button class="example-btn" data-example="E012">E012</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Application de décodage pour autoradios Renault • Gratuit et sécurisé</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
